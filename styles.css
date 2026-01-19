@@ -1,0 +1,28 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+.frame{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+#userInput{
+    width: 33%;
+    height: 100px;
+    border: solid 1px #4a5a72;
+    align-self: center;
+    font-size: 28px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#enterBtn{
+    width: 33%;
+    border: solid 1px #4a5a72;
+    align-self: center;
+}
+
+#square{
+    font-size: 100px;
+}
