@@ -1,17 +1,23 @@
 //let userNum = userInput.value;
 let total = 0;
+let x;
+let y;
 
 function operate(x,y){
 
-    plusSign.addEventListener("click", () => add(x,y));
-    minusSign.addEventListener("click", () => subtract(x,y));
-    timesSign.addEventListener("click", () => multiply(x,y));
-    divideSign.addEventListener("click", () => {
-            
-            userInput.value += numValue;
+    plusSign.addEventListener("click", () => function() {
+    userInput.value += '+';
+});
 
-        })
-    }
+ minusSign.addEventListener("click", () => subtract(x,y));
+    timesSign.addEventListener("click", () => multiply(x,y));
+    divideSign.addEventListener("click", () => divide(x,y));
+
+
+}
+   
+
+    
     /*
 if (plusSign === true){
     add(x,y)
@@ -24,21 +30,28 @@ if (plusSign === true){
     */
 
 function add(x,y){
-     return x + y;
-//return total += num;
+    total = x+y;
+    console.log(total);
+    return total;
+
 }
 function subtract(x,y){
-    return x - y;
+    total = x - y;
+    console.log(total);
+    return total;
 }
 
 function multiply(x,y){
-    return x * y;
+    total = x * y;
+    console.log(total);
+    return total;
 }
 
 function divide(x, y){
     if (x === 0 || y === 0){
         return 'Error';
     } else {
+        console.log(x/y);
         return x/y;
     }
 
@@ -70,11 +83,83 @@ operators.appendChild(minusSign);
 operators.appendChild(timesSign);
 operators.appendChild(divideSign);
 
-// clear button
-const enter = document.createElement("button");
+ plusSign.addEventListener("click", () => {
+    userInput.value += "+";
+});
+
+
+ minusSign.addEventListener("click", () => {
+    userInput.value += "-";
+});
+
+
+ divideSign.addEventListener("click", () => {
+    userInput.value += "/";
+});
+
+
+ timesSign.addEventListener("click", () => {
+    userInput.value += "*";
+});
+        
+
+// enter button
+const enter = document.getElementById("enterBtn");
 enter.id = "enterBtn";
 enter.textContent = "ENTER";
 operators.appendChild(enter);
+
+
+//ONCLICK THEN DO PARSE NUMBERS AND CALCULATE
+
+
+const testParagraph = document.getElementById("test");
+const paragraphTest = document.createElement("p");
+
+
+const button = document.getElementById('enterBtn');
+button.addEventListener('click', () => {
+    splitTheString();
+});
+
+userInput.addEventListener('keydown', function(event){
+    if (event.key === "Enter"){
+        splitTheString();
+        event.preventDefault();
+        //button.click();
+    }
+});
+
+//parse user response / before symbol and after symbol
+function splitTheString(){
+ // Capture the value from the input field
+    let input = userInput.value;
+    let parts = input.split(/[+-/*]/);
+    const left = parseFloat(parts[0].trim());
+    const right = parseFloat(parts[1].trim());
+
+    if(input.includes("+")){
+        add(left, right);
+    }
+    if(input.includes("-")){
+        subtract(left, right);
+    }
+    if(input.includes("/")){
+        divide(left, right);
+    }
+    if(input.includes("*")){
+        multiply(left, right);
+    }
+
+
+  //add it to new paragraph
+  paragraphTest.textContent = total;
+  testParagraph.appendChild(paragraphTest);
+
+};
+
+
+
 
 const clear = document.createElement("button");
 clear.id = "clearBtn";
@@ -89,6 +174,9 @@ let square;
 let text = '0';
 userInput.value = parseInt(text);
 
+let numValue;
+
+
 function addGrid(element, squares){
     element.style.setProperty('background-color', '#f5f5f5')
     for (let i=0; i < squares*squares; i++){
@@ -99,15 +187,20 @@ function addGrid(element, squares){
         square.style.setProperty('box-sizing', 'border-box')
         square.style.setProperty('aspect-ratio','1/1')
         square.style.setProperty('flex','1 1 1');
-        square.style.setProperty('font-size', '33px')
+        square.style.setProperty('font-size', '66px')
         square.textContent = i+1;
         square.addEventListener("click", () => {
-                userInput.value='';
+           // also add onkeydown
 
-            let numValue = parseInt(i+1); 
-            userInput.value += numValue;
+            
+            numValue = parseInt(i+1); 
+            //userInput.value='';
+            userInput.value += `${numValue}`;
+
+          
 
         })
+
 
        // square.style.setProperty('border-right', '1px solid #ffffff')
        // square.style.setProperty('border-top', '1px solid #4a5a72')  
@@ -124,3 +217,5 @@ function addGrid(element, squares){
     
 
 addGrid(canvas, 3)
+
+//const test paragraph with browser console stuff

@@ -1,6 +1,6 @@
 # BASIC CALCULATOR
 
-## or basic bitch calculator
+## or basic b/tch calculator
 
 ### currently in progress
 
