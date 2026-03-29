@@ -64,8 +64,8 @@ canvas.style.setProperty('display', 'flex');
 canvas.style.setProperty('flex-wrap','wrap');
 canvas.style.setProperty('flex-direction','row');
 canvas.style.setProperty('justify-content','space-between')
-canvas.style.setProperty('width', '633px');
-canvas.style.setProperty('border', 'solid 1px black');
+canvas.style.setProperty('width', '300px');
+canvas.style.setProperty('border', 'solid 2px #6e4a72');
 
 
 const operators = document.getElementById("operators");
@@ -78,10 +78,10 @@ plusSign.textContent = "+";
 minusSign.textContent = "−";
 timesSign.textContent = "×";
 divideSign.textContent="÷";
-operators.appendChild(plusSign);
-operators.appendChild(minusSign);
 operators.appendChild(timesSign);
 operators.appendChild(divideSign);
+operators.appendChild(minusSign);
+operators.appendChild(plusSign);
 
  plusSign.addEventListener("click", () => {
     userInput.value += "+";
@@ -102,18 +102,16 @@ operators.appendChild(divideSign);
     userInput.value += "*";
 });
         
+const bottomRow = document.getElementById("bottom-row");
 
 // enter button
-const enter = document.getElementById("enterBtn");
+const enter = document.createElement("button");
 enter.id = "enterBtn";
-enter.textContent = "ENTER";
-operators.appendChild(enter);
+enter.textContent = "=";
+bottomRow.append(enter);
 
 
-//ONCLICK THEN DO PARSE NUMBERS AND CALCULATE
-
-
-const testParagraph = document.getElementById("test");
+const testParagraph = document.getElementById("answer");
 const paragraphTest = document.createElement("p");
 
 
@@ -164,11 +162,33 @@ function splitTheString(){
 const clear = document.createElement("button");
 clear.id = "clearBtn";
 clear.textContent = "CLEAR";
-operators.prepend(clear);
+frame.append(clear);
 
 clear.addEventListener("click", () => {
     userInput.value='';
     });
+
+
+
+const decimal = document.createElement("button");
+decimal.id = "decimalBtn";
+decimal.textContent = ".";
+
+bottomRow.prepend(decimal);
+
+
+decimal.addEventListener("click", () => {
+    userInput.value += "."
+})
+
+const zero = document.createElement("button");
+zero.id = "zeroBtn";
+zero.textContent = "0";
+bottomRow.prepend(zero);
+
+zero.addEventListener("click", () => {
+    userInput.value += "0"
+})
 
 let square;
 let text = '0';
@@ -180,14 +200,17 @@ let numValue;
 function addGrid(element, squares){
     element.style.setProperty('background-color', '#f5f5f5')
     for (let i=0; i < squares*squares; i++){
-        square = document.createElement('button')
-        square.style.setProperty('border', '1px solid #4a5a72')
+        square = document.createElement('button');
+        square.style.setProperty('border', '1px solid #6e4a72');
+        square.style.setProperty('border-radius', '2px');
         square.style.setProperty('width',`calc(100%/${squares})`)
         square.style.setProperty('height',`calc(100%/${squares})`)
         square.style.setProperty('box-sizing', 'border-box')
         square.style.setProperty('aspect-ratio','1/1')
         square.style.setProperty('flex','1 1 1');
-        square.style.setProperty('font-size', '66px')
+       
+     
+        square.style.setProperty('font-size', '44px')
         square.textContent = i+1;
         square.addEventListener("click", () => {
            // also add onkeydown
@@ -195,7 +218,7 @@ function addGrid(element, squares){
             
             numValue = parseInt(i+1); 
             //userInput.value='';
-            userInput.value += `${numValue}`;
+            userInput.value += `${numValue}` ;
 
           
 

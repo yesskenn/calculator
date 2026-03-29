@@ -2,9 +2,8 @@
 
 ## or basic b/tch calculator
 
-### currently in progress
 
-A simple calculator created as part of The Odin Project. Goals are to:
+An online calculator with basic math operations built with JavaScript, HTML and CSS.
 
 - keep it simple,
 - functional,
@@ -17,4 +16,4 @@ A simple calculator created as part of The Odin Project. Goals are to:
 - CSS
 - JS with DOM MANIPULATION, EVENTS, OBJECTS
 
-### last updated 01/19/2026
+### last updated 03/28/2026
