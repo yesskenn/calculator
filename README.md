@@ -1,6 +1,6 @@
 # BASIC CALCULATOR
 
-## or basic b/tch calculator
+## or basic b calculator
 
 
 An online calculator with basic math operations built with JavaScript, HTML and CSS.
@@ -16,4 +16,4 @@ An online calculator with basic math operations built with JavaScript, HTML and 
 - CSS
 - JS with DOM MANIPULATION, EVENTS, OBJECTS
 
-### last updated 03/28/2026
+### last updated 04/12/2026
