@@ -51,21 +51,26 @@ function divide(x, y){
     if (x === 0 || y === 0){
         return 'Error';
     } else {
-        console.log(x/y);
-        return x/y;
+        total = x/y;
+        console.log(total);
+        return total;
     }
 
 }
 
 const canvas = document.getElementById('grid');
-canvas.style.setProperty('margin', '0 auto');
-canvas.style.setProperty('padding', '1%');
-canvas.style.setProperty('display', 'flex');
-canvas.style.setProperty('flex-wrap','wrap');
-canvas.style.setProperty('flex-direction','row');
-canvas.style.setProperty('justify-content','space-between')
+/*canvas.style.setProperty('margin', '0 auto'); */
+canvas.style.setProperty('display', 'grid');
+canvas.style.setProperty('grid-template-rows','repeat(3, 1fr)');
+canvas.style.setProperty('grid-template-columns','repeat(3, 1fr)');
+canvas.style.setProperty('gap','10px');
 canvas.style.setProperty('width', '300px');
-canvas.style.setProperty('border', 'solid 2px #6e4a72');
+
+/* canvas.style.setProperty('flex-wrap','wrap');
+canvas.style.setProperty('flex-direction','row'); 
+canvas.style.setProperty('justify-content','space-between')
+canvas.style.setProperty('width', '600px');
+/* canvas.style.setProperty('border', 'solid 2px #6e4a72'); */
 
 
 const operators = document.getElementById("operators");
@@ -161,8 +166,8 @@ function splitTheString(){
 
 const clear = document.createElement("button");
 clear.id = "clearBtn";
-clear.textContent = "CLEAR";
-frame.append(clear);
+clear.textContent = "C";
+bottomRow.append(clear);
 
 clear.addEventListener("click", () => {
     userInput.value='';
@@ -201,10 +206,11 @@ function addGrid(element, squares){
     element.style.setProperty('background-color', '#f5f5f5')
     for (let i=0; i < squares*squares; i++){
         square = document.createElement('button');
-        square.style.setProperty('border', '1px solid #6e4a72');
+        square.style.setProperty('border', '1px solid #D09FDB');
         square.style.setProperty('border-radius', '2px');
-        square.style.setProperty('width',`calc(100%/${squares})`)
-        square.style.setProperty('height',`calc(100%/${squares})`)
+        square.style.setProperty('width',`100%`)
+        square.style.setProperty('height', '100%');
+        //square.style.setProperty('height',`calc(100%/${squares})`)
         square.style.setProperty('box-sizing', 'border-box')
         square.style.setProperty('aspect-ratio','1/1')
         square.style.setProperty('flex','1 1 1');

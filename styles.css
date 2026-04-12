@@ -1,6 +1,5 @@
 body, html {
-    display: flex;
-    flex-direction: column;
+    
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -9,35 +8,31 @@ body, html {
 #frame{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
     gap: 10px;
-    
-    width:300px;
-    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
 }   
 
 
 #operators {
 display: flex;
 flex-direction: column;
-justify-content: center; 
 gap: 10px;
-align-items: flex-start;
-margin-bottom: 10px;
-border: solid 1px limegreen;
+align-items: stretch;
+
     
 }
 #operators > button {
  border-radius: 2px; 
-  border: 1px solid #2c0d6e;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   box-sizing: border-box;
   color: #00132C;
   font-family: "Montserrat",sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  padding: 16px 23px;
-  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 22px;
+  padding: 24px 10px;
+  width: 90px;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -52,42 +47,35 @@ border: solid 1px limegreen;
 }
 
 .mainframe {
-    
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-max-width: 400px;
-margin: 0 auto;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+width: 400px;
 gap: 10px;
- border: solid 1px red;
-
+margin: 0 auto;
 }
+
 #userInput {
-    width:360px;
+    width:400px;
     height:32px;
-    padding: 1em;
 }
 
 #enterBtn, #clearBtn {
-    font-size: 28px;
-    padding: 9px; 
 }
 
 #bottom-row {
     display: flex;
     flex-direction: row;
-    width: 400px;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px orange;
-
+    gap: 10px;
+    width: 100%;
 }
 
 
 #bottom-row > button {
  
     height: 60px;
-    width: 100px;
+    width: 100%;
+    font-size: 22px;
 }
 
 
@@ -98,7 +86,6 @@ footer {
     padding: 1em;
     width: 100%;
     align-items: center;
-    border: solid 1px plum;
 }
 
 header {
@@ -118,9 +105,9 @@ button {
   background-position: 0 90%;
   background-repeat: repeat no-repeat;
   background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
+  border-radius: 2px;
+  border: solid 1px #cd79d5b6;
+  /* blobby radii border-radius: 15px 225px 255px 15px / 15px 255px 225px 15px; */
   box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #413e41;
@@ -128,7 +115,7 @@ button {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-  line-height: 23px;
+  line-height: 22px;
   outline: none;
   padding: .75rem;
   text-decoration: none;
